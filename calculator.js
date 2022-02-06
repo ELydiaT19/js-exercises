@@ -1,35 +1,30 @@
-
 const add = function(...input) {
-	let result = 0;
-  for (let i = 0; i < input.length; i++) {
-    let currentValue = input[i];
-    result += currentValue;
-  }
-  return result; 
+  return input.reduce(
+    (accumulator, currentValue) => accumulator += currentValue,
+    0
+  )
 };
 
 const subtract = function(...input) {
-  let result = input[0];
-  for (let i = 1; i < input.length; i++) {
-    result -= input[i];
-  }
-  return result;
+  return input.reduce(
+    (accumulator, currentValue, currentIndex) => currentIndex === 0 ? accumulator : accumulator - currentValue,
+    input[0]
+  )
 };
 
 const sum = function(input) {
-  let result = input.reduce(function(accumulator, currentValue) {
-    accumulator += currentValue;
-    return accumulator;
-  }, 0);
-  return result; 
+  // no need to define & return "result" -> directly return input.reduce
+  return input.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  )
 };
 
 const multiply = function(input) {
-  let result = input.reduce(function(accumulator, currentValue) {
-    accumulator *= currentValue;
-    return accumulator;
-  }, 1);
-  return result; 
+  return input.reduce(
+    (accumulator, currentValue) => accumulator *= currentValue,
+    1
+  )
 };
 
 const power = function(number, power) {
